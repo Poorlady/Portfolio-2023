@@ -32,6 +32,52 @@
     }
 }
 
+@keyframes fadeInLeft {
+    0% {
+        transform: translateX(-400px);
+        opacity: 0;
+    }
+
+    60% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInRight {
+    0% {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+
+    60% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInBottom {
+    0% {
+        transform: translateY(400px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
 section {
     background-color: var(--black);
     color: var(--yellow);
@@ -89,20 +135,23 @@ span {
     overflow: hidden;
 }
 
-.about h2 {
-    border-right: 2px solid var(--yellow);
-    animation: slideToRight 2s ease-in-out forwards;
-}
-
 .about p {
     font-size: clamp(16px, 5vw, 20px);
     text-align: left;
     line-height: 32px;
     margin-bottom: 70px;
+    position: relative;
+    transform: translateX(-400px);
+    opacity: 0;
+    /* width: 0; */
+    /* overflow: hidden; */
 }
 
 .about__card {
     margin-bottom: 32px;
+    position: relative;
+    transform: translateX(-400px);
+    opacity: 0;
 }
 
 .about__card__title {
@@ -124,10 +173,26 @@ span {
     margin-bottom: 8px;
 }
 
-.works h2 {
+.about__title.active h2 {
+    /* border-right: 2px solid var(--yellow); */
+    animation: slideToRight 1s ease-in-out forwards;
+}
+
+.about__bio.active p,
+.about__card__obs.active .about__card {
+    animation: fadeInLeft 1s ease-in-out forwards;
+}
+
+/* .about__card__obs.active .about__card{
+    animation: fadeInLeft 500ms  ease-in-out forwards;
+} */
+
+/* works */
+
+.works__title.active h2 {
     /* text-align: right; */
-    border-right: 2px solid var(--yellow);
-    animation: slideToRight 2s ease-in-out forwards;
+    /* border-right: 2px solid var(--yellow); */
+    animation: slideToRight 1s ease-in-out forwards;
 }
 
 .works ul {
@@ -160,7 +225,7 @@ span {
     color: var(--black);
 }
 
-.work__card svg{
+.work__card svg {
     fill: var(--black) !important;
 }
 
@@ -184,6 +249,14 @@ span {
     font-weight: 700;
     display: flex;
     flex-direction: column;
+    position: relative;
+    opacity: 0;
+    transform: translateY(400px);
+}
+
+
+.works__card__obs.active .work__card {
+    animation: fadeInBottom 1s 500ms ease-in-out forwards;
 }
 
 .work__card__img {
@@ -196,6 +269,7 @@ span {
 
 .work__card__title {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     margin-top: 20px;
 }
@@ -233,6 +307,13 @@ span {
     font-size: 60px;
     line-height: 70px;
     border: none;
+    position: relative;
+    transform: translateX(-400px);
+    opacity: 0;
+}
+
+.contact__title__obs.active h2 {
+    animation: fadeInLeft 1s ease-in-out forwards;
 }
 
 .contact a {
@@ -246,6 +327,12 @@ span {
     margin-top: -10px;
     margin-left: auto;
     position: relative;
+    transform: translateX(400px);
+    opacity: 0;
+}
+
+.contact__link__obs.active a {
+    animation: fadeInRight 1s ease-in-out forwards;
 }
 
 .contact a::before,
@@ -334,7 +421,7 @@ span {
 
     h2 {
         width: 100% !important;
-        animation: unset !important;
+        animation: unset;
         text-align: center;
         display: flex;
         flex-direction: column;
@@ -345,16 +432,37 @@ span {
 
     .about h2 {
         border-bottom: none;
+        transform: translateX(400px);
+        opacity: 0;
     }
+
+    .about__title {
+        width: 100%;
+        border-right: 2px solid transparent;
+        transition: 500ms ease-in-out;
+    }
+
+    .about__title.active {
+        border-color: var(--yellow);
+    }
+
+    .about__title.active h2 {
+        animation: fadeInRight 1s ease-in-out 500ms forwards;
+    }
+
 
     .about .container p {
         margin-bottom: 0;
         padding: 0 0 0 10%;
         margin-bottom: 40px;
+        animation-delay: 500ms !important;
+        animation-duration: 1s;
     }
 
     .about__card {
         padding: 0 0 0 10%;
+        animation-duration: 1s;
+        animation-delay: 500ms !important;
     }
 
     .about__flex {
@@ -372,6 +480,12 @@ span {
         border: none;
         border-bottom: 2px solid var(--yellow);
         padding: 0 24px 24px 0;
+        opacity: 0;
+        transform: translateX(-400px);
+    }
+
+    .works__title.active h2{
+        animation: fadeInLeft 1s ease-in-out forwards;
     }
 
     .works__project {
@@ -475,9 +589,14 @@ span {
         padding-right: 12px;
     }
 
+    .works a{
+        text-decoration: none;
+    }
+
     .link_desktop:hover {
         background-color: var(--yellow) !important;
         color: var(--black) !important;
+        text-decoration: none;
     }
 
     /* contact */

@@ -1,12 +1,7 @@
 import React, { useState } from 'react'
-import { NavLink } from 'react-router-dom'
 import './NavBar.css'
 
 const routes = [
-  //   {
-  //     path: '/',
-  //     label: 'Home',
-  //   },
   {
     path: '#about',
     label: 'About',
@@ -25,9 +20,13 @@ const NavBar = () => {
   const [isActive, setIsActive] = useState(false)
   function handleOpenOverlay() {
     setIsActive(true)
+    document.body.classList.add("hold")
   }
   function handleCloseOverlay() {
+    // console.log('hit')
     setIsActive(false)
+    document.body.classList.remove("hold")
+    return true
   }
 
   return (
@@ -47,11 +46,7 @@ const NavBar = () => {
             <a
               key={route.path}
               href={route.path}
-              // to={route.path}
               className='header__link'
-              // className={({ isActive }) =>
-              //   isActive ? 'header__link active' : 'header__link'
-              // }
             >
               {route.label}
             </a>
@@ -64,11 +59,8 @@ const NavBar = () => {
             <a
               key={route.path}
               href={route.path}
-              // to={route.path}
               className="header__link"
-              // className={({ isActive }) =>
-              //   isActive ? 'header__link active' : 'header__link'
-              // }
+              onClick={handleCloseOverlay}
             >
               {route.label}
             </a>

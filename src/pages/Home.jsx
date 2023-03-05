@@ -8,8 +8,6 @@ import Greeting from '../components/Greeting'
 import Contact from '../components/Contact'
 
 const Home = () => {
-  // console.log(inView)
-
   return (
     <>
       <Greeting/>

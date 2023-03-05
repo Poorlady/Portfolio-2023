@@ -1,21 +1,27 @@
 import React from 'react'
-import { useInView } from 'react-intersection-observer'
+import IntersectComponent from './IntersectComponent'
+
+const datas = [
+  { title: 'Expertise', list: ['Frontend Developer', 'Backend Developer'] },
+  {
+    title: 'Tools',
+    list: ['HTML', 'CSS', 'ReactJS', 'ExpressJS', 'MySQL', 'MongoDB'],
+  },
+]
 
 const About = () => {
-  const [ref, inView] = useInView()
-
   return (
-    <section className='section' ref={ref} id='about'>
-        <div className={`about ${inView ? "active" :''}`}>
-          <div className='container'>
+    <section className='section' id='about'>
+      <div className={`about`}>
+        <div className='container'>
+          <IntersectComponent className={'about__title'}>
             <h2>
-              <span>
-                About
-              </span>
+              <span>About</span>
               <span>Me</span>
-              {/* <i>{inView}</i> */}
             </h2>
-            <div className='about__header'>
+          </IntersectComponent>
+          <div className='about__header'>
+            <IntersectComponent className={'about__bio'}>
               <p>
                 Hi, I'm Alif. A web developer with 2 years professional
                 experience as Frontend Developer. I have some experience as
@@ -25,36 +31,29 @@ const About = () => {
                 whether you already have existing web app or want to need a new
                 one you're on the right track 😉.
               </p>
-              <div className='about__card'>
-                <div className='about__card__title'>
-                  <h3>Expertise</h3>
-                </div>
-                <div>
-                  <ul className='about__flex'>
-                    <li>Frontend Developer</li>
-                    <li>Backend Developer</li>
-                  </ul>
-                </div>
-              </div>
-              <div className='about__card'>
-                <div className='about__card__title'>
-                  <h3>Tools</h3>
-                </div>
-                <div>
-                  <ul className='about__flex'>
-                    <li>HTML</li>
-                    <li>CSS</li>
-                    <li>ReactJS</li>
-                    <li>ExpressJS</li>
-                    <li>MySQL</li>
-                    <li>MongoDB</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+            </IntersectComponent>
+            {datas.map((data) => {
+              return (
+                <IntersectComponent key={data.title} className='about__card__obs'>
+                  <div className='about__card'>
+                    <div className='about__card__title'>
+                      <h3>{data.title}</h3>
+                    </div>
+                    <div>
+                      <ul className='about__flex'>
+                        {data.list.map((item) => {
+                          return <li key={item}>{item}</li>
+                        })}
+                      </ul>
+                    </div>
+                  </div>
+                </IntersectComponent>
+              )
+            })}
           </div>
         </div>
-      </section>
+      </div>
+    </section>
   )
 }
 

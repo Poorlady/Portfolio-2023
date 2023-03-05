@@ -2,25 +2,34 @@ import React from 'react'
 import { FaInstagram, FaLinkedin, FaGithub } from 'react-icons/fa'
 import './MediaLink.css'
 
+const datas = [
+  {
+    link: 'https://www.instagram.com/saniekasmara/',
+    Component: <FaInstagram />,
+  },
+  {
+    link: 'https://www.linkedin.com/in/alif-ekasmara-aa521317a/',
+    Component: <FaLinkedin />,
+  },
+  {
+    link: 'https://github.com/Poorlady',
+    Component: <FaGithub />,
+  },
+]
+
 const MediaLink = () => {
   return (
     <div className='medias'>
-        <div className='media'>
-          <a href='https://www.instagram.com/saniekasmara/' target='_blank'>
-            <FaInstagram />
-          </a>
-        </div>
-        <div className='media'>
-          <a href='https://www.linkedin.com/in/alif-ekasmara-aa521317a/' target='_blank'>
-            <FaLinkedin />
-          </a>
-        </div>
-        <div className='media'>
-          <a href='https://github.com/Poorlady'  target='_blank'>
-            <FaGithub />
-          </a>
-        </div>
-      </div>
+      {datas.map((data) => {
+        return (
+          <div className='media'>
+            <a href={data.link} target='_blank'>
+              {data.Component}
+            </a>
+          </div>
+        )
+      })}
+    </div>
   )
 }
 

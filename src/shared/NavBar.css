@@ -7,12 +7,11 @@
     top: 0;
     left: 0;
     right: 0;
-    color: #e9c46a;
+    color: var(--yellow);
     z-index: 10;
-    /* max-width: 1135px; */
     margin: 0 auto;
     z-index: 5;
-    background: #000814;
+    background: var(--black);
 }
 
 .header__title {
@@ -22,7 +21,7 @@
 }
 
 .header__title a{
-    color: #e9c46a;
+    color: var(--yellow);
     text-decoration: none;
 }
 
@@ -30,7 +29,7 @@
     display: inline-block;
     font-family: 'Lato', sans-serif;
     text-decoration: none;
-    color: #e9c46a;
+    color: var(--yellow);
     padding: 8px 15px;
     border-bottom: 1px solid transparent;
     transition: 300ms ease-in;
@@ -42,11 +41,8 @@
 
 .header__hamburger {
     padding: 10px 0;
-    /* height: 20px; */
     width: 48px;
-    /* background-color: #fff; */
     position: relative;
-    /* margin-top: 10px; */
     transition: 300ms ease-in;
     cursor: pointer;
 }
@@ -56,19 +52,12 @@
     width: 40px;
 }
 
-/* .header__hamburger:hover::after{ */
-/* padding: 2px 20px;
-     */
-/* } */
-
 .header__hamburger::before,
 .header__hamburger::after {
     content: "";
-    /* padding: 2px 0; */
     height: 4px;
-    background-color: #e9c46a;
+    background-color: var(--yellow);
     position: absolute;
-    /* top: 0; */
     right: 0;
     transition: 300ms ease-in;
     transform-origin: 0;
@@ -105,34 +94,27 @@
 }
 
 .header__overlay {
-    /* display: none; */
     height: 0;
-    position: absolute;
+    position: fixed;
     top: 0;
     width: 0;
-    /* left: 0; */
     right: 0;
-    /* bottom: 0; */
-    background-color: rgba(0, 0, 0, .85);
-    /* filter: blur(8px); */
-    /* -webkit-filter: blur(8px); */
+    background-color: rgba(0, 8, 20, .85);
     transition: 300ms ease-in-out;
     z-index: 1;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    /* bottom: ; */
 }
 
 .header__overlay.openOverlay {
     height: 100vh;
     width: 100%;
-    /* left: 0; */
 }
 
 .header__link:hover {
-    border-color: #e9c46a;
+    border-color: var(--yellow);
 }
 
 .header__navbar__mobile{
@@ -147,10 +129,9 @@
 }
 
 .header__navbar__mobile .header__link{
-    color: #c1c1c1;
+    color: var(--yellow);
     text-transform: uppercase;
     opacity: 0;
-    /* transition-delay: 300ms; */
 }
 
 .header__overlay.openOverlay .header__link{
@@ -169,7 +150,7 @@
 
 @media (min-width:1024px) {
     .header{
-    padding: 48px 10%;
+    padding: 24px 10%;
     }
 
     .header__navbar.desktop {
