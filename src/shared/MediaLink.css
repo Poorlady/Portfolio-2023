@@ -1,10 +1,10 @@
 @keyframes popInLeft {
     0% {
-        transform: translateX(-80px);
+        transform: translateX(-80px) translateY(-50%);
     }
 
     100% {
-        transform: translateX(0);
+        transform: translateX(0) translateY(-50%);
     }
 }
 
@@ -14,7 +14,7 @@
     }
 
     100% {
-        transform: translateX(0);
+        transform: translateY(0);
     }
 }
 
@@ -63,7 +63,7 @@
         bottom: unset;
         right: unset;
         flex-direction: column;
-        transform: translateY(-50%);
+        /* transform: translateY(-50%); */
         border-radius: 0 8px 8px 0;
         animation: popInLeft 1s ease-in-out forwards;
     }
