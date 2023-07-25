@@ -4,15 +4,20 @@ import IntersectComponent from './IntersectComponent'
 
 const datas = [
   {
+    title: 'Andreaswidi Landing Page',
+    link: 'https://andreaswidi.com',
+    img: '/projects/andreaswidi.png',
+  },
+  {
     title: 'Landing Page Mockup',
     link: 'https://poorlady.github.io/fem-Easybank/',
     img: '/projects/easybank.PNG',
   },
-  {
-    title: 'Drag and Drop Todo App',
-    link: 'https://poorlady.github.io/ts-learn/',
-    img: '/projects/Todo.png',
-  },
+  // {
+  //   title: 'Drag and Drop Todo App',
+  //   link: 'https://poorlady.github.io/ts-learn/',
+  //   img: '/projects/Todo.png',
+  // },
   {
     title: 'Snake Game',
     link: 'https://poorlady.github.io/scmb-snake-game/',

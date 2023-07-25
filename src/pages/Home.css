@@ -275,7 +275,7 @@ span {
 }
 
 .work__card__title p {
-    font-size: clamp(20px, 5vw, 40px);
+    font-size: clamp(20px, 5vw, 28px);
     line-height: 32px;
     max-width: 50%;
 }
@@ -359,6 +359,17 @@ span {
 }
 
 
+@media (min-width:768px) {
+    .about,
+    .works{
+        padding: 24px;
+    }
+
+    .work__card{
+        max-height: unset;
+    }
+}
+
 @media (min-width:1024px) {
     .greeting__box {
         top: 50%;
@@ -388,7 +399,7 @@ span {
         max-width: 80%;
         display: flex;
         position: relative;
-        padding: 100px 0;
+        padding: 24px 0;
         overflow: visible;
     }
 
@@ -568,7 +579,7 @@ span {
 
     .work__card__title p {
         max-width: 25%;
-        font-size: 40px;
+        font-size: 32px;
         line-height: 48px;
     }
 
@@ -631,4 +642,8 @@ span {
     .contact a:hover::before {
         display: none;
     }
+}
+
+#shadow-host-companion{
+    display: none;
 }
